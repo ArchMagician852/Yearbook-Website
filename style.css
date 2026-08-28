@@ -1,26 +1,18 @@
-/* =========================================================
-   GOOGLE FONTS
-   ========================================================= */
-
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Stardos+Stencil:wght@400;700&display=swap');
 
 
-/* =========================================================
+/* =========================
    CUSTOM FONTS
-   ========================================================= */
+========================= */
 
 @font-face {
     font-family: "XboxFont";
     src: url("Fonts/X360.ttf");
-    font-weight: normal;
-    font-style: normal;
 }
 
 @font-face {
     font-family: "PlaystationFont";
     src: url("Fonts/PS.ttf");
-    font-weight: normal;
-    font-style: normal;
 }
 
 @font-face {
@@ -31,46 +23,37 @@
 }
 
 
-/* =========================================================
-   GENERAL PAGE SETTINGS
-   ========================================================= */
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
+/* =========================
+   GENERAL PAGE
+========================= */
 
 body {
     margin: 0;
-    min-height: 100vh;
     background-color: rgb(13, 88, 114);
+    min-height: 100vh;
 }
 
 
-/* =========================================================
-   HOME PAGE - TOP BANNER
-   ========================================================= */
+/* =========================
+   MAIN HOME PAGE BANNER
+========================= */
 
 .solid-banner {
     background-color: #007bff;
     color: #ffffff;
 
     width: min(90%, 1350px);
-
     margin: 20px auto;
 
     padding: clamp(30px, 5vw, 60px) 20px;
+
+    box-sizing: border-box;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     gap: clamp(10px, 2vw, 20px);
-
-    text-align: center;
 
     font-family: "Orbitron", sans-serif;
     font-size: clamp(30px, 4vw, 50px);
@@ -86,29 +69,9 @@ body {
 }
 
 
-/* =========================================================
-   HOME PAGE - MAIN LAYOUT
-   ========================================================= */
-
-.main-layout {
-    width: min(95%, 1200px);
-
-    margin: 60px auto;
-
-    display: grid;
-
-    grid-template-columns: 150px minmax(0, 700px) 150px;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: clamp(20px, 4vw, 60px);
-}
-
-
-/* =========================================================
-   HOME PAGE - MAIN BANNER
-   ========================================================= */
+/* =========================
+   MAIN HOME PAGE CONTENT
+========================= */
 
 .main-banner {
     background-color: #0f3864;
@@ -119,6 +82,8 @@ body {
 
     padding: clamp(30px, 5vw, 60px);
 
+    box-sizing: border-box;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -127,18 +92,37 @@ body {
 
     font-family: "Stardos Stencil", system-ui;
     font-weight: 700;
-    font-style: normal;
 
     font-size: clamp(35px, 5vw, 60px);
 }
 
 
-/* =========================================================
-   HOME PAGE - XBOX / PLAYSTATION BUTTONS
-   ========================================================= */
+/* =========================
+   CONSOLE BUTTON LAYOUT
+========================= */
+
+.main-layout {
+    width: min(95%, 1200px);
+
+    margin: 60px auto;
+
+    display: grid;
+
+    grid-template-columns:
+        150px
+        minmax(0, 700px)
+        150px;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: clamp(20px, 4vw, 60px);
+}
+
 
 .console-button {
     width: clamp(100px, 12vw, 150px);
+
     aspect-ratio: 1 / 1;
 
     display: flex;
@@ -152,7 +136,7 @@ body {
     text-decoration: none;
 
     background-color: #007bff;
-    color: #ffffff;
+    color: white;
 
     font-family: "Orbitron", sans-serif;
     font-size: clamp(14px, 2vw, 20px);
@@ -173,68 +157,51 @@ body {
 }
 
 
-/* =========================================================
-   HOME BUTTON
-   ========================================================= */
-
-.home-button {
-    display: inline-block;
-
-    padding: 8px 15px;
-
-    text-decoration: none;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    transition: filter 0.2s ease;
-}
-
-.home-button:hover {
-    filter: brightness(70%);
-}
-
-
-/* =========================================================
+/* =========================
    XBOX PAGE
-   ========================================================= */
+========================= */
 
 .xbox-page {
     background-color: #107C10;
-
-    min-height: 100vh;
 }
 
 
-/* Xbox title/banner */
+/* Xbox banner */
 
 .xbox-page .xbox-banner {
     background-color: #92C83E;
     color: #ffffff;
 
-    width: min(80%, 600px);
+    text-align: center;
 
-    margin: 40px auto 20px auto;
+    padding: 60px 20px;
 
-    padding: 30px 20px;
+    width: 25%;
+    height: 10%;
+
+    box-sizing: border-box;
+
+    position: absolute;
+
+    top: 10%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
-    text-align: center;
+    gap: 20px;
 
     font-family: "XboxFont", sans-serif;
-
-    font-size: clamp(50px, 8vw, 100px);
+    font-size: 100px;
 
     white-space: nowrap;
 }
 
 
-/* Xbox main article box */
+/* Xbox main content */
 
 .xbox-main {
     width: 80%;
@@ -242,14 +209,16 @@ body {
 
     min-height: 1200px;
 
-    margin: 20px auto 50px auto;
+    text-align: center;
+
+    margin: 150px auto 50px auto;
 
     padding: 40px;
 
-    text-align: center;
+    box-sizing: border-box;
 
     background-color: #92C83E;
-    color: #ffffff;
+    color: white;
 
     border-radius: 10px;
 
@@ -267,6 +236,8 @@ body {
     font-size: 30px;
 
     border: 2px solid #92C83E;
+
+    transition: filter 0.2s ease;
 }
 
 .xbox-page .home-button:hover {
@@ -274,45 +245,44 @@ body {
 }
 
 
-/* =========================================================
+/* =========================
    PLAYSTATION PAGE
-   ========================================================= */
-
-.playstation-page {
-    background-color: #285f78;
-
-    min-height: 100vh;
-}
-
-
-/* PlayStation title/banner */
+========================= */
 
 .playstation-page .playstation-banner {
     background-color: #ffffff;
     color: #0070D1;
 
-    width: min(80%, 600px);
+    text-align: center;
 
-    margin: 40px auto 20px auto;
+    padding: 60px 20px;
 
-    padding: 30px 20px;
+    width: 25%;
+    height: 10%;
+
+    box-sizing: border-box;
+
+    position: absolute;
+
+    top: 10%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
-    text-align: center;
+    gap: 20px;
 
     font-family: "PlaystationFont", sans-serif;
-
-    font-size: clamp(35px, 6vw, 60px);
+    font-size: 35px;
 
     white-space: nowrap;
 }
 
 
-/* PlayStation main article box */
+/* PlayStation main content */
 
 .playstation-main {
     width: 80%;
@@ -320,14 +290,16 @@ body {
 
     min-height: 1200px;
 
-    margin: 20px auto 50px auto;
+    text-align: center;
+
+    margin: 150px auto 50px auto;
 
     padding: 40px;
 
-    text-align: center;
+    box-sizing: border-box;
 
     background-color: #0f3864;
-    color: #ffffff;
+    color: white;
 
     border-radius: 10px;
 
@@ -345,6 +317,8 @@ body {
     font-size: 30px;
 
     border: 2px solid #ffffff;
+
+    transition: filter 0.2s ease;
 }
 
 .playstation-page .home-button:hover {
@@ -353,19 +327,21 @@ body {
 
 
 /* =========================================================
-   HIDDEN MINI GAME
-   ========================================================= */
+   HIDDEN MINIGAME
+========================================================= */
+
+
+/* Full-screen dark overlay */
 
 #minigame {
     display: none;
 
     position: fixed;
 
-    top: 0;
-    left: 0;
+    inset: 0;
 
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
 
     background-color: rgba(0, 0, 0, 0.85);
 
@@ -373,18 +349,34 @@ body {
 
     align-items: center;
     justify-content: center;
+
+    overflow: hidden;
 }
 
 
-/* Mini game window */
+/* =========================
+   MINIGAME WINDOW
+========================= */
 
 .game-box {
-    width: min(90%, 700px);
-    height: min(80vh, 500px);
+    position: relative;
+
+    width: min(90vw, 700px);
+
+    /*
+       This replaces the old fixed 500px height.
+       The game window now scales with the screen.
+    */
+    height: min(90vh, 650px);
+
+    max-height: 90vh;
+
+    padding: 20px;
+
+    box-sizing: border-box;
 
     background-color: #0f3864;
-
-    color: #ffffff;
+    color: white;
 
     border: 3px solid #007bff;
 
@@ -392,29 +384,111 @@ body {
 
     font-family: "Orbitron", sans-serif;
 
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
 
-    box-sizing: border-box;
+    align-items: center;
+
+    overflow: hidden;
 }
 
 
-/* Mini game play area */
+/* =========================
+   MINIGAME TITLE
+========================= */
+
+.game-box h1 {
+    margin: 10px 0;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: clamp(24px, 5vw, 40px);
+}
+
+
+/* Minigame instructions */
+
+.game-box p {
+    margin: 8px 0;
+
+    font-size: clamp(14px, 3vw, 20px);
+}
+
+
+/* =========================
+   RED X CLOSE BUTTON
+========================= */
+
+.close-game {
+    position: absolute;
+
+    top: 10px;
+    right: 10px;
+
+    width: 36px;
+    height: 36px;
+
+    padding: 0;
+
+    background-color: red;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 6px;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    line-height: 36px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    transition: filter 0.2s ease;
+}
+
+.close-game:hover {
+    filter: brightness(70%);
+}
+
+
+/* =========================
+   MINIGAME PLAY AREA
+========================= */
 
 #game-area {
     position: relative;
 
     width: 100%;
-    height: 320px;
+
+    /*
+       IMPORTANT:
+       The game area takes up the remaining
+       space inside the game window.
+    */
+    flex: 1;
+
+    min-width: 0;
+    min-height: 0;
 
     margin-top: 20px;
 
     background-color: #082542;
 
     overflow: hidden;
+
+    box-sizing: border-box;
 }
 
 
-/* Mini game disc */
+/* =========================
+   DISC
+========================= */
 
 .disc {
     position: absolute;
@@ -423,51 +497,65 @@ body {
     height: 50px;
 
     cursor: pointer;
+
+    user-select: none;
+
+    transition: transform 0.1s ease;
+}
+
+.disc:hover {
+    transform: scale(1.1);
+}
+
+
+/* =========================
+   MOBILE MINIGAME BUTTON
+========================= */
+
+.mobile-minigame-button {
+    display: none;
+
+    margin: 20px auto;
+
+    padding: 12px 20px;
+
+    background-color: #007bff;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 6px;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: filter 0.2s ease;
+}
+
+.mobile-minigame-button:hover {
+    filter: brightness(70%);
 }
 
 
 /* =========================================================
-   TABLET / SMALL LAPTOP
-   ========================================================= */
-
-@media (max-width: 1000px) {
-
-    .main-layout {
-        grid-template-columns: 120px minmax(0, 1fr) 120px;
-
-        gap: 25px;
-    }
-
-    .main-banner {
-        min-height: 350px;
-
-        font-size: clamp(30px, 5vw, 50px);
-
-        padding: 30px;
-    }
-
-    .console-button {
-        width: 120px;
-    }
-}
-
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
+   TABLET / MOBILE
+========================================================= */
 
 @media (max-width: 800px) {
 
-    /* -------------------------
-       HOME TOP BANNER
-       ------------------------- */
+    /* Main banner */
 
     .solid-banner {
         width: 92%;
 
         margin: 20px auto;
 
-        padding: 30px 15px;
+        padding: 35px 15px;
 
         font-size: clamp(24px, 6vw, 40px);
 
@@ -480,9 +568,7 @@ body {
     }
 
 
-    /* -------------------------
-       HOME MAIN LAYOUT
-       ------------------------- */
+    /* Main page layout */
 
     .main-layout {
         width: 92%;
@@ -499,8 +585,6 @@ body {
     }
 
 
-    /* Main banner */
-
     .main-banner {
         width: 100%;
 
@@ -514,21 +598,14 @@ body {
     }
 
 
-    /* Xbox button */
-
     .xbox-button {
         order: 2;
     }
-
-
-    /* PlayStation button */
 
     .playstation-button {
         order: 3;
     }
 
-
-    /* Console buttons */
 
     .console-button {
         width: 120px;
@@ -536,314 +613,83 @@ body {
     }
 
 
-    /* -------------------------
-       XBOX PAGE
-       ------------------------- */
+    /*
+       Show the minigame button on mobile AND tablets.
+       This includes your Galaxy Tab A+ in landscape.
+    */
 
-    .xbox-page .xbox-banner {
-        width: 90%;
-
-        margin: 30px auto 20px auto;
-
-        padding: 25px 10px;
-
-        font-size: clamp(50px, 15vw, 80px);
-
-        white-space: nowrap;
-    }
-
-    .xbox-main {
-        width: 90%;
-
-        min-height: 1200px;
-
-        margin: 20px auto 50px auto;
-
-        padding: 30px 20px;
-
-        font-size: 18px;
-    }
-
-    .xbox-page .home-button {
-        margin: 15px;
-
-        font-size: 24px;
+    .mobile-minigame-button {
+        display: block;
     }
 
 
-    /* -------------------------
-       PLAYSTATION PAGE
-       ------------------------- */
+    /* =========================
+       MOBILE MINIGAME WINDOW
+    ========================= */
 
-    .playstation-page .playstation-banner {
-        width: 90%;
+    .game-box {
+        width: 92vw;
 
-        margin: 30px auto 20px auto;
+        height: 90vh;
 
-        padding: 25px 10px;
+        max-height: 90vh;
 
-        font-size: clamp(35px, 10vw, 60px);
-
-        white-space: nowrap;
+        padding: 15px;
     }
 
-    .playstation-main {
-        width: 90%;
-
-        min-height: 1200px;
-
-        margin: 20px auto 50px auto;
-
-        padding: 30px 20px;
-
-        font-size: 18px;
-    }
-
-    .playstation-page .home-button {
-        margin: 15px;
-
-        font-size: 24px;
-    }
-
-
-    /* -------------------------
-       MINI GAME
-       ------------------------- */
-
-.game-box {
-    width: min(90vw, 700px);
-    height: min(85vh, 650px);
-    background-color: #0f3864;
-    color: white;
-    border: 3px solid #007bff;
-    text-align: center;
-    font-family: "Orbitron", sans-serif;
-    padding: 20px;
-    box-sizing: border-box;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    position: relative;
-}
-
-#game-area {
-    position: relative;
-    width: 100%;
-    flex: 1;
-    min-height: 0;
-    margin-top: 20px;
-    background-color: #082542;
-    overflow: hidden;
-}
-.close-game {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-
-    width: 36px;
-    height: 36px;
-
-    background-color: red;
-    color: white;
-
-    border: none;
-    border-radius: 6px;
-
-    font-size: 22px;
-    font-weight: bold;
-
-    cursor: pointer;
-    z-index: 10;
-}
-
-.close-game:hover {
-    filter: brightness(70%);
-}
 
     #game-area {
-        height: 60vh;
+        margin-top: 15px;
     }
+
+
+    .disc {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 500px) {
+
+    .game-box {
+        width: 94vw;
+
+        height: 92vh;
+
+        padding: 12px;
+    }
+
+
+    .game-box h1 {
+        font-size: 24px;
+    }
+
+
+    .game-box p {
+        font-size: 14px;
+    }
+
+
+    .close-game {
+        width: 32px;
+        height: 32px;
+
+        font-size: 19px;
+
+        line-height: 32px;
+
+        top: 8px;
+        right: 8px;
+    }
+
 
     .disc {
         width: 40px;
         height: 40px;
     }
 }
-
-
-/* =========================================================
-   VERY SMALL PHONES
-   ========================================================= */
-
-@media (max-width: 450px) {
-
-    .solid-banner {
-        font-size: 24px;
-    }
-
-    .solid-banner img {
-        width: 32px;
-        height: 32px;
-    }
-
-    .main-banner {
-        min-height: 300px;
-
-        font-size: 30px;
-    }
-
-    .console-button {
-        width: 110px;
-        height: 110px;
-    }
-
-    .xbox-page .xbox-banner {
-        font-size: 45px;
-    }
-
-    .playstation-page .playstation-banner {
-        font-size: 32px;
-    }
-
-    .xbox-main,
-    .playstation-main {
-        width: 94%;
-
-        padding: 25px 15px;
-    }
-}
-
-/* =========================================================
-   MOBILE MINI GAME BUTTON
-   ========================================================= */
-
-#mobile-game-button {
-    display: none;
-}
-
-@media (max-width: 1200px) {
-    #mobile-game-button {
-        display: block;
-        margin: 20px auto;
-    }
-}
-
-
-/* Show button on mobile */
-
-@media (max-width: 800px) {
-
-    #mobile-game-button {
-        display: block;
-
-        margin: 40px auto;
-
-        padding: 15px 25px;
-
-        background-color: #007bff;
-        color: white;
-
-        border: 2px solid #ffffff;
-        border-radius: 8px;
-
-        font-family: "Orbitron", sans-serif;
-        font-size: 18px;
-        font-weight: 700;
-
-        cursor: pointer;
-
-        transition: filter 0.2s ease;
-    }
-
-    #mobile-game-button:hover {
-        filter: brightness(70%);
-    }
-
-}
-
-/* Minigame close button */
-#close-game {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-
-    width: 32px;
-    height: 32px;
-
-    background-color: #d00000;
-    color: white;
-
-    border: none;
-    border-radius: 4px;
-
-    font-family: Arial, sans-serif;
-    font-size: 18px;
-    font-weight: bold;
-
-    cursor: pointer;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    transition: filter 0.2s ease;
-}
-
-#close-game:hover {
-    filter: brightness(70%);
-}
-
-
-/* Make the minigame fit phones */
-@media (max-width: 800px) {
-
-    .game-box {
-        width: 90%;
-        max-width: 600px;
-        height: auto;
-        max-height: 90vh;
-
-        padding: 20px 15px;
-    }
-
-    #game-area {
-        width: 100%;
-        height: 55vh;
-        max-height: 500px;
-
-        margin-top: 20px;
-    }
-
-}
-
-@media (max-width: 1400px) {
-
-    #mobile-game-button {
-        display: block;
-
-        margin: 40px auto;
-
-        padding: 15px 25px;
-
-        background-color: #007bff;
-        color: white;
-
-        border: 2px solid #ffffff;
-        border-radius: 8px;
-
-        font-family: "Orbitron", sans-serif;
-        font-size: 18px;
-        font-weight: 700;
-
-        cursor: pointer;
-
-        transition: filter 0.2s ease;
-    }
-
-    #mobile-game-button:hover {
-        filter: brightness(70%);
-    }
-
-}  
