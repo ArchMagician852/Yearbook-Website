@@ -610,50 +610,55 @@ body {
        MINI GAME
        ------------------------- */
 
-    .game-box {
-        width: 92%;
+.game-box {
+    width: min(90vw, 700px);
+    height: min(85vh, 650px);
+    background-color: #0f3864;
+    color: white;
+    border: 3px solid #007bff;
+    text-align: center;
+    font-family: "Orbitron", sans-serif;
+    padding: 20px;
+    box-sizing: border-box;
 
-        height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-        padding: 15px;
-    }
-
-    .game-box {
     position: relative;
 }
 
-#close-game {
+#game-area {
+    position: relative;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    margin-top: 20px;
+    background-color: #082542;
+    overflow: hidden;
+}
+.close-game {
     position: absolute;
-    top: 8px;
-    right: 8px;
+    top: 10px;
+    right: 10px;
 
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
 
-    background-color: #d00000;
+    background-color: red;
     color: white;
 
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
 
-    font-family: Arial, sans-serif;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: bold;
 
     cursor: pointer;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    transition: filter 0.2s ease;
+    z-index: 10;
 }
 
-#close-game:hover {
-    filter: brightness(70%);
-}
-
-#close-game:hover {
+.close-game:hover {
     filter: brightness(70%);
 }
 
