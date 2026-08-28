@@ -416,43 +416,53 @@ body {
 
 
 /* =========================
-   RED X CLOSE BUTTON
+   MINIGAME CLOSE BUTTON
 ========================= */
 
-.close-game {
-    position: absolute;
+.game-box .close-game,
+.game-box #close-game {
+    position: absolute !important;
 
-    top: 10px;
-    right: 10px;
+    top: 10px !important;
+    right: 10px !important;
+    left: auto !important;
+    bottom: auto !important;
 
-    width: 36px;
-    height: 36px;
+    width: 36px !important;
+    height: 36px !important;
 
-    padding: 0;
+    padding: 0 !important;
+    margin: 0 !important;
 
-    background-color: red;
+    background: #ff0000 !important;
+    background-color: #ff0000 !important;
 
-    color: white;
+    color: #ffffff !important;
 
-    border: none;
+    border: none !important;
+    border-radius: 6px !important;
 
-    border-radius: 6px;
+    font-family: Arial, sans-serif !important;
+    font-size: 22px !important;
+    font-weight: bold !important;
 
-    font-size: 22px;
-    font-weight: bold;
+    line-height: 36px !important;
+    text-align: center !important;
 
-    line-height: 36px;
-
-    text-align: center;
+    display: block !important;
 
     cursor: pointer;
 
-    z-index: 10;
+    z-index: 99999 !important;
+
+    transform: none !important;
 
     transition: filter 0.2s ease;
 }
 
-.close-game:hover {
+.game-box .close-game:hover,
+.game-box #close-game:hover {
+    background: #ff0000 !important;
     filter: brightness(70%);
 }
 
