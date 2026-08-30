@@ -7,40 +7,84 @@ document.addEventListener("DOMContentLoaded", () => {
     const mobileButton = document.getElementById("mobile-game-button");
 
     let score = 0;
+    let discTimer = null;
 
-    // Open the minigame
+
+    // =========================
+    // OPEN THE MINIGAME
+    // =========================
+
     function openGame() {
+
         minigame.style.display = "flex";
+
         score = 0;
         updateScore();
+
+        gameArea.innerHTML = "";
+
         spawnDisc();
     }
 
-    // Close the minigame
+
+    // =========================
+    // CLOSE THE MINIGAME
+    // =========================
+
     function closeGame() {
+
         minigame.style.display = "none";
+
         gameArea.innerHTML = "";
+
+        // Cancel any active despawn timer
+        if (discTimer) {
+            clearTimeout(discTimer);
+            discTimer = null;
+        }
     }
 
-    // Update score
+
+    // =========================
+    // UPDATE SCORE
+    // =========================
+
     function updateScore() {
+
         scoreDisplay.textContent = score;
     }
 
-    // Create a new disc
+
+    // =========================
+    // CREATE A NEW DISC
+    // =========================
+
     function spawnDisc() {
 
-        // Remove any existing disc
+        // Clear previous disc
         gameArea.innerHTML = "";
+
+        // Cancel previous timer
+        if (discTimer) {
+            clearTimeout(discTimer);
+            discTimer = null;
+        }
 
         const disc = document.createElement("img");
 
         disc.src = "Images/Disc1.png";
+
         disc.classList.add("disc");
 
-        // Random position
-        const maxX = gameArea.clientWidth - 50;
-        const maxY = gameArea.clientHeight - 50;
+
+        // =========================
+        // RANDOM POSITION
+        // =========================
+
+        const discSize = 50;
+
+        const maxX = Math.max(0, gameArea.clientWidth - discSize);
+        const maxY = Math.max(0, gameArea.clientHeight - discSize);
 
         const x = Math.random() * maxX;
         const y = Math.random() * maxY;
@@ -48,29 +92,79 @@ document.addEventListener("DOMContentLoaded", () => {
         disc.style.left = `${x}px`;
         disc.style.top = `${y}px`;
 
-        // When disc is clicked
+
+        // =========================
+        // WHEN DISC IS CLICKED
+        // =========================
+
         disc.addEventListener("click", () => {
 
+            // Increase score
             score++;
+
             updateScore();
 
+            // Remove the clicked disc
+            disc.remove();
+
+            // Cancel its despawn timer
+            if (discTimer) {
+                clearTimeout(discTimer);
+                discTimer = null;
+            }
+
+            // Spawn another disc
             spawnDisc();
         });
 
+
+        // Add disc to game
         gameArea.appendChild(disc);
+
+
+        // =========================
+        // DESPAWN AFTER 3 SECONDS
+        // =========================
+
+        discTimer = setTimeout(() => {
+
+            // Only remove it if it still exists
+            if (disc.parentElement === gameArea) {
+
+                disc.remove();
+
+                // Spawn another disc
+                spawnDisc();
+            }
+
+        }, 3000);
     }
 
-    // Close button
+
+    // =========================
+    // CLOSE BUTTON
+    // =========================
+
     if (closeButton) {
+
         closeButton.addEventListener("click", closeGame);
     }
 
-    // Mobile game button
+
+    // =========================
+    // MOBILE GAME BUTTON
+    // =========================
+
     if (mobileButton) {
+
         mobileButton.addEventListener("click", openGame);
     }
 
+
+    // =========================
     // CTRL + ALT + P
+    // =========================
+
     document.addEventListener("keydown", (event) => {
 
         if (
@@ -78,11 +172,14 @@ document.addEventListener("DOMContentLoaded", () => {
             event.altKey &&
             event.key.toLowerCase() === "p"
         ) {
+
             openGame();
         }
 
-        // ESC also closes the game
+
+        // ESC closes the game
         if (event.key === "Escape") {
+
             closeGame();
         }
     });

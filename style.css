@@ -22,9 +22,14 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: "NintendoFont";
+    src: url("Fonts/Nintendo.otf");
+}
+
 
 /* =========================================================
-   GENERAL PAGE
+   GENERAL
 ========================================================= */
 
 * {
@@ -42,20 +47,21 @@ body {
 
 
 /* =========================================================
-   HOME PAGE
+   HOME PAGE BACKGROUND
 ========================================================= */
 
-body:not(.xbox-page):not(.playstation-page) {
+body:not(.xbox-page):not(.playstation-page):not(.nintendo-page) {
     background-color: rgb(13, 88, 114);
 }
 
 
-/* =========================
+/* =========================================================
    HOME PAGE TITLE
-========================= */
+========================================================= */
 
 .solid-banner {
     width: min(90%, 1350px);
+
     margin: 20px auto;
 
     padding: clamp(30px, 5vw, 60px) 20px;
@@ -64,6 +70,7 @@ body:not(.xbox-page):not(.playstation-page) {
     color: #ffffff;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -72,6 +79,7 @@ body:not(.xbox-page):not(.playstation-page) {
     text-align: center;
 
     font-family: "Orbitron", sans-serif;
+
     font-size: clamp(30px, 4vw, 50px);
 
     white-space: nowrap;
@@ -87,9 +95,19 @@ body:not(.xbox-page):not(.playstation-page) {
 }
 
 
-/* =========================
+/* =========================================================
    HOME PAGE LAYOUT
-========================= */
+========================================================= */
+
+/*
+   DESKTOP:
+
+              MAIN BANNER
+       XBOX     PS     NINTENDO
+
+   The grid prevents any console button from appearing
+   beside the main banner.
+*/
 
 .main-layout {
     width: min(95%, 1200px);
@@ -98,24 +116,27 @@ body:not(.xbox-page):not(.playstation-page) {
 
     display: grid;
 
-    grid-template-columns:
-        150px
-        minmax(0, 700px)
-        150px;
+    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-rows: auto auto;
 
     align-items: center;
-    justify-content: center;
 
-    gap: clamp(20px, 4vw, 60px);
+    justify-items: center;
+
+    column-gap: 40px;
+
+    row-gap: 40px;
 }
 
 
-/* =========================
+/* =========================================================
    MAIN HOME BANNER
-========================= */
+========================================================= */
 
 .main-banner {
     width: 100%;
+
     min-height: 400px;
 
     padding: clamp(30px, 5vw, 60px);
@@ -124,27 +145,35 @@ body:not(.xbox-page):not(.playstation-page) {
     color: #ffffff;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     text-align: center;
 
     font-family: "Stardos Stencil", system-ui;
+
     font-weight: 700;
 
     font-size: clamp(35px, 5vw, 60px);
+
+    grid-column: 1 / 4;
+
+    grid-row: 1;
 }
 
 
-/* =========================
+/* =========================================================
    CONSOLE BUTTONS
-========================= */
+========================================================= */
 
 .console-button {
-    width: clamp(100px, 12vw, 150px);
+    width: clamp(110px, 12vw, 150px);
+
     aspect-ratio: 1 / 1;
 
     display: flex;
+
     flex-direction: column;
 
     align-items: center;
@@ -154,18 +183,25 @@ body:not(.xbox-page):not(.playstation-page) {
 
     text-decoration: none;
 
-    background-color: #007bff;
     color: #ffffff;
 
     font-family: "Orbitron", sans-serif;
+
     font-size: clamp(14px, 2vw, 20px);
+
     font-weight: 700;
 
-    transition: filter 0.2s ease;
+    cursor: pointer;
+
+    transition:
+        filter 0.2s ease,
+        transform 0.2s ease;
 }
 
 .console-button:hover {
     filter: brightness(70%);
+
+    transform: scale(1.03);
 }
 
 .console-button img {
@@ -173,6 +209,42 @@ body:not(.xbox-page):not(.playstation-page) {
     height: 50%;
 
     object-fit: contain;
+}
+
+
+/* =========================================================
+   XBOX BUTTON
+========================================================= */
+
+.xbox-button {
+    background-color: #107C10;
+
+    grid-column: 1;
+    grid-row: 2;
+}
+
+
+/* =========================================================
+   PLAYSTATION BUTTON
+========================================================= */
+
+.playstation-button {
+    background-color: #0070D1;
+
+    grid-column: 2;
+    grid-row: 2;
+}
+
+
+/* =========================================================
+   NINTENDO BUTTON
+========================================================= */
+
+.nintendo-button {
+    background-color: #E60012;
+
+    grid-column: 3;
+    grid-row: 2;
 }
 
 
@@ -185,9 +257,9 @@ body:not(.xbox-page):not(.playstation-page) {
 }
 
 
-/* =========================
+/* =========================================================
    XBOX BANNER
-========================= */
+========================================================= */
 
 .xbox-page .xbox-banner {
     width: min(90%, 600px);
@@ -197,24 +269,27 @@ body:not(.xbox-page):not(.playstation-page) {
     padding: 30px 20px;
 
     background-color: #92C83E;
+
     color: #ffffff;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     text-align: center;
 
     font-family: "XboxFont", sans-serif;
+
     font-size: clamp(50px, 8vw, 100px);
 
     white-space: nowrap;
 }
 
 
-/* =========================
+/* =========================================================
    XBOX MAIN CONTENT
-========================= */
+========================================================= */
 
 .xbox-main {
     width: min(80%, 1000px);
@@ -226,6 +301,7 @@ body:not(.xbox-page):not(.playstation-page) {
     padding: 40px;
 
     background-color: #92C83E;
+
     color: #ffffff;
 
     text-align: center;
@@ -236,9 +312,9 @@ body:not(.xbox-page):not(.playstation-page) {
 }
 
 
-/* =========================
+/* =========================================================
    XBOX HOME BUTTON
-========================= */
+========================================================= */
 
 .xbox-page .home-button {
     display: inline-block;
@@ -248,11 +324,13 @@ body:not(.xbox-page):not(.playstation-page) {
     padding: 10px 20px;
 
     background-color: #92C83E;
+
     color: #ffffff;
 
     text-decoration: none;
 
     font-family: "XboxFont", sans-serif;
+
     font-size: 30px;
 
     border: 2px solid #92C83E;
@@ -274,9 +352,9 @@ body:not(.xbox-page):not(.playstation-page) {
 }
 
 
-/* =========================
+/* =========================================================
    PLAYSTATION BANNER
-========================= */
+========================================================= */
 
 .playstation-page .playstation-banner {
     width: min(90%, 600px);
@@ -286,24 +364,27 @@ body:not(.xbox-page):not(.playstation-page) {
     padding: 30px 20px;
 
     background-color: #ffffff;
+
     color: #0070D1;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     text-align: center;
 
     font-family: "PlaystationFont", sans-serif;
+
     font-size: clamp(30px, 5vw, 50px);
 
     white-space: nowrap;
 }
 
 
-/* =========================
+/* =========================================================
    PLAYSTATION MAIN CONTENT
-========================= */
+========================================================= */
 
 .playstation-main {
     width: min(80%, 1000px);
@@ -315,6 +396,7 @@ body:not(.xbox-page):not(.playstation-page) {
     padding: 40px;
 
     background-color: #0f3864;
+
     color: #ffffff;
 
     text-align: center;
@@ -325,9 +407,9 @@ body:not(.xbox-page):not(.playstation-page) {
 }
 
 
-/* =========================
+/* =========================================================
    PLAYSTATION HOME BUTTON
-========================= */
+========================================================= */
 
 .playstation-page .home-button {
     display: inline-block;
@@ -337,11 +419,13 @@ body:not(.xbox-page):not(.playstation-page) {
     padding: 10px 20px;
 
     background-color: #ffffff;
+
     color: #0070D1;
 
     text-decoration: none;
 
     font-family: "PlaystationFont", sans-serif;
+
     font-size: 30px;
 
     border: 2px solid #ffffff;
@@ -355,13 +439,209 @@ body:not(.xbox-page):not(.playstation-page) {
 
 
 /* =========================================================
-   HIDDEN MINI GAME
+   NINTENDO PAGE
 ========================================================= */
 
+.nintendo-page {
+    background-color: #E60012;
+}
 
-/* =========================
-   FULL SCREEN OVERLAY
-========================= */
+
+/* =========================================================
+   NINTENDO BANNER
+========================================================= */
+
+.nintendo-page .nintendo-banner {
+    width: min(90%, 600px);
+
+    margin: 40px auto 0;
+
+    padding: 30px 20px;
+
+    background-color: #ffffff;
+
+    color: #E60012;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    font-family: NintendoFont, sans-serif;
+
+    font-size: clamp(35px, 7vw, 50px);
+
+    font-weight: bold;
+
+    white-space: nowrap;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   NINTENDO MAIN CONTENT
+========================================================= */
+
+.nintendo-main {
+    width: min(80%, 1000px);
+
+    min-height: 1200px;
+
+    margin: 50px auto;
+
+    padding: 40px;
+
+    background-color: #ffffff;
+
+    color: #222222;
+
+    text-align: center;
+
+    border-radius: 10px;
+
+    font-family: "NintendoFont", sans-serif;
+
+    line-height: 1.5;
+}
+
+.nintendo-main h1 {
+    color: #E60012;
+
+    font-size: clamp(28px, 5vw, 42px);
+
+    line-height: 1.2;
+
+    margin: 0 0 30px 0;
+}
+
+.nintendo-main h2 {
+    font-size: clamp(18px, 3vw, 26px);
+
+    line-height: 1.5;
+
+    margin: 0 0 25px 0;
+}
+
+.nintendo-main p {
+    font-size: clamp(16px, 2.5vw, 20px);
+
+    line-height: 1.6;
+
+    margin: 0 0 30px 0;
+}
+
+
+/* =========================================================
+   NINTENDO HEADINGS
+========================================================= */
+
+.nintendo-main h1 {
+    color: #E60012;
+
+    font-size: 25px;
+
+    margin-bottom: 30px;
+}
+
+.nintendo-main h2 {
+    font-size: 26px;
+
+    line-height: 1.5;
+
+    margin-bottom: 25px;
+}
+
+.nintendo-main p {
+    font-size: 20px;
+
+    line-height: 1.6;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   NINTENDO MEDIA COMPARISON
+========================================================= */
+
+.card-comparison {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 30px;
+
+    margin-top: 50px;
+}
+
+.media-card {
+    width: 45%;
+
+    padding: 30px;
+
+    background-color: #f5f5f5;
+
+    border: 4px solid #E60012;
+
+    border-radius: 10px;
+
+    text-align: center;
+}
+
+.media-card h2 {
+    color: #E60012;
+
+    font-size: 28px;
+
+    margin-top: 0;
+}
+
+.media-card p {
+    font-size: 18px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   NINTENDO HOME BUTTON
+========================================================= */
+
+.nintendo-page .home-button {
+    display: inline-block;
+
+    margin: 20px;
+
+    padding: 10px 20px;
+
+    background-color: #ffffff;
+
+    color: #E60012;
+
+    text-decoration: none;
+
+    font-family: "NintendoFont", sans-serif;
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+    border: 2px solid #ffffff;
+
+    transition: filter 0.2s ease;
+}
+
+.nintendo-page .home-button:hover {
+    filter: brightness(70%);
+}
+
+
+/* =========================================================
+   HIDDEN MINI GAME
+========================================================= */
 
 #minigame {
     display: none;
@@ -386,25 +666,29 @@ body:not(.xbox-page):not(.playstation-page) {
 }
 
 
-/* =========================
-   GAME WINDOW
-========================= */
+/* =========================================================
+   MINI GAME WINDOW
+========================================================= */
 
 .game-box {
     position: relative;
 
     width: min(90vw, 700px);
+
     height: min(90vh, 650px);
 
     padding: 20px;
 
     background-color: #0f3864;
+
     color: #ffffff;
 
     border: 3px solid #007bff;
 
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
 
     text-align: center;
@@ -415,9 +699,9 @@ body:not(.xbox-page):not(.playstation-page) {
 }
 
 
-/* =========================
-   GAME TITLE
-========================= */
+/* =========================================================
+   MINI GAME TITLE
+========================================================= */
 
 .game-box h1 {
     margin: 10px 50px 10px 10px;
@@ -428,9 +712,9 @@ body:not(.xbox-page):not(.playstation-page) {
 }
 
 
-/* =========================
-   GAME TEXT
-========================= */
+/* =========================================================
+   MINI GAME TEXT
+========================================================= */
 
 .game-box p {
     margin: 8px 0;
@@ -439,9 +723,9 @@ body:not(.xbox-page):not(.playstation-page) {
 }
 
 
-/* =========================
-   CLOSE BUTTON
-========================= */
+/* =========================================================
+   MINI GAME CLOSE BUTTON
+========================================================= */
 
 #close-game {
     position: absolute;
@@ -456,16 +740,21 @@ body:not(.xbox-page):not(.playstation-page) {
     margin: 0;
 
     background-color: #ff0000;
+
     color: #ffffff;
 
     border: none;
+
     border-radius: 6px;
 
     font-family: Arial, sans-serif;
+
     font-size: 22px;
+
     font-weight: bold;
 
     line-height: 36px;
+
     text-align: center;
 
     cursor: pointer;
@@ -480,9 +769,9 @@ body:not(.xbox-page):not(.playstation-page) {
 }
 
 
-/* =========================
-   GAME AREA
-========================= */
+/* =========================================================
+   MINI GAME AREA
+========================================================= */
 
 #game-area {
     position: relative;
@@ -502,9 +791,9 @@ body:not(.xbox-page):not(.playstation-page) {
 }
 
 
-/* =========================
+/* =========================================================
    DISC
-========================= */
+========================================================= */
 
 .disc {
     position: absolute;
@@ -536,33 +825,41 @@ body:not(.xbox-page):not(.playstation-page) {
     padding: 12px 24px;
 
     background-color: #007bff;
+
     color: #ffffff;
 
     border: 2px solid #ffffff;
+
     border-radius: 6px;
 
     font-family: "Orbitron", sans-serif;
+
     font-size: 16px;
+
     font-weight: 700;
 
     cursor: pointer;
 
-    transition: filter 0.2s ease;
+    transition:
+        filter 0.2s ease,
+        transform 0.2s ease;
 }
 
 #mobile-game-button:hover {
     filter: brightness(70%);
+
+    transform: scale(1.03);
 }
 
 
 /* =========================================================
-   TABLETS AND PHONES
+   TABLETS / PHONES
 ========================================================= */
 
 @media (max-width: 800px) {
 
     /* =========================
-       HOME BANNER
+       HOME TITLE
     ========================= */
 
     .solid-banner {
@@ -601,6 +898,7 @@ body:not(.xbox-page):not(.playstation-page) {
         gap: 25px;
     }
 
+
     .main-banner {
         width: 100%;
 
@@ -613,6 +911,7 @@ body:not(.xbox-page):not(.playstation-page) {
         order: 1;
     }
 
+
     .xbox-button {
         order: 2;
     }
@@ -621,14 +920,20 @@ body:not(.xbox-page):not(.playstation-page) {
         order: 3;
     }
 
+    .nintendo-button {
+        order: 4;
+    }
+
+
     .console-button {
         width: 120px;
+
         height: 120px;
     }
 
 
     /* =========================
-       SHOW MINI GAME BUTTON
+       MINI GAME BUTTON
     ========================= */
 
     #mobile-game-button {
@@ -637,11 +942,12 @@ body:not(.xbox-page):not(.playstation-page) {
 
 
     /* =========================
-       GAME WINDOW
+       MINI GAME
     ========================= */
 
     .game-box {
         width: 92vw;
+
         height: 90vh;
 
         padding: 15px;
@@ -658,11 +964,13 @@ body:not(.xbox-page):not(.playstation-page) {
 
 
     /* =========================
-       XBOX / PLAYSTATION PAGES
+       CONSOLE PAGE BANNERS
     ========================= */
 
     .xbox-page .xbox-banner,
-    .playstation-page .playstation-banner {
+    .playstation-page .playstation-banner,
+    .nintendo-page .nintendo-banner {
+
         width: 90%;
 
         margin-top: 20px;
@@ -672,8 +980,15 @@ body:not(.xbox-page):not(.playstation-page) {
         white-space: normal;
     }
 
+
+    /* =========================
+       CONSOLE MAIN CONTENT
+    ========================= */
+
     .xbox-main,
-    .playstation-main {
+    .playstation-main,
+    .nintendo-main {
+
         width: 92%;
 
         min-height: 1000px;
@@ -681,6 +996,40 @@ body:not(.xbox-page):not(.playstation-page) {
         margin: 35px auto;
 
         padding: 25px 20px;
+    }
+
+
+    /* =========================
+       NINTENDO
+    ========================= */
+
+    .nintendo-main h1 {
+        font-size: clamp(28px, 7vw, 42px);
+    }
+
+    .nintendo-main h2 {
+        font-size: clamp(20px, 5vw, 26px);
+    }
+
+    .nintendo-main p {
+        font-size: 18px;
+    }
+
+
+    /* =========================
+       NINTENDO CARDS
+    ========================= */
+
+    .card-comparison {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 20px;
+    }
+
+    .media-card {
+        width: 100%;
     }
 }
 
@@ -690,6 +1039,10 @@ body:not(.xbox-page):not(.playstation-page) {
 ========================================================= */
 
 @media (max-width: 500px) {
+
+    /* =========================
+       HOME
+    ========================= */
 
     .solid-banner {
         font-size: clamp(22px, 7vw, 32px);
@@ -714,6 +1067,7 @@ body:not(.xbox-page):not(.playstation-page) {
 
     .game-box {
         width: 94vw;
+
         height: 92vh;
 
         padding: 12px;
@@ -752,12 +1106,17 @@ body:not(.xbox-page):not(.playstation-page) {
     ========================= */
 
     .xbox-page .xbox-banner,
-    .playstation-page .playstation-banner {
+    .playstation-page .playstation-banner,
+    .nintendo-page .nintendo-banner {
+
         font-size: clamp(35px, 12vw, 60px);
     }
 
+
     .xbox-main,
-    .playstation-main {
+    .playstation-main,
+    .nintendo-main {
+
         width: 94%;
 
         padding: 20px 15px;
@@ -765,13 +1124,32 @@ body:not(.xbox-page):not(.playstation-page) {
         min-height: 900px;
     }
 
+
     .xbox-main h1,
-    .playstation-main h1 {
+    .playstation-main h1,
+    .nintendo-main h1 {
+
         font-size: clamp(28px, 8vw, 40px);
     }
 
+
     .xbox-main h2,
-    .playstation-main h2 {
+    .playstation-main h2,
+    .nintendo-main h2 {
+
         font-size: clamp(18px, 5vw, 26px);
+    }
+
+
+    /* =========================
+       NINTENDO CARDS
+    ========================= */
+
+    .media-card {
+        padding: 20px;
+    }
+
+    .media-card h2 {
+        font-size: 24px;
     }
 }
