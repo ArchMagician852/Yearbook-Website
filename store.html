@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="store.css">
+
+    <link rel="icon"
+          type="image/png"
+          href="Images/site-icon.png">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <title>Optical Media Store</title>
+
+</head>
+
+<body class="store-page">
+
+    <!-- HOME -->
+
+    <a href="index.html" class="store-home">
+        HOME
+    </a>
+
+
+    <!-- HEADER -->
+
+    <header class="store-header">
+
+        <div>
+            <h1>THE DIGITAL "OWNERSHIP" STORE</h1>
+
+            <p>BUY GAMES HERE</p>
+        </div>
+
+        <button id="store-cart-button">
+            🛒 CART
+            <span id="cart-count">0</span>
+        </button>
+
+    </header>
+
+
+    <!-- MAIN STORE -->
+
+    <main class="store-container">
+
+        <section class="store-intro">
+
+            <h2>Buy it. Download it. Enjoy it.</h2>
+
+            <p>
+                Until someone decides you down own it anymore
+            </p>
+
+        </section>
+
+
+        <!-- PRODUCTS -->
+
+        <section class="store-products">
+
+
+            <!-- PRODUCT 1 -->
+
+            <article class="store-product">
+
+                <div class="store-product-image">
+
+                    <img src="Images/SuperMarioBrothersWonder.jpg"
+                         alt="Physical game disc">
+
+                </div>
+
+                <h2>
+                    Super Mario Bros. Wonder
+                </h2>
+
+                <p>Game License</p>
+
+                <strong>$59.99</strong>
+
+                <button class="add-to-cart"
+                        data-product="1">
+
+                    ADD TO CART
+
+                </button>
+
+            </article>
+
+
+            <!-- PRODUCT 2 -->
+
+            <article class="store-product">
+
+                <div class="store-product-image">
+
+                    <img src="Images/LegendofZeldaBOTW.jpg"
+                         alt="Physical game disc">
+
+                </div>
+
+                <h2>
+                    The Legend of Zelda
+                </h2>
+
+                <p>Game License</p>
+
+                <strong>$59.99</strong>
+
+                <button class="add-to-cart"
+                        data-product="2">
+
+                    ADD TO CART
+
+                </button>
+
+            </article>
+
+
+            <!-- PRODUCT 3 -->
+
+            <article class="store-product">
+
+                <div class="store-product-image">
+
+                    <img src="Images/MarioKart8Deluxe.avif"
+                         alt="Physical game disc">
+
+                </div>
+
+                <h2>
+                    Mario Kart 8 Deluxe
+                </h2>
+
+                <p>Game License</p>
+
+                <strong>$59.99</strong>
+
+                <button class="add-to-cart"
+                        data-product="3">
+
+                    ADD TO CART
+
+                </button>
+
+            </article>
+
+
+            <!-- PRODUCT 4 -->
+
+            <article class="store-product">
+
+                <div class="store-product-image">
+
+                    <img src="Images/NintendoSwitchSports.avif"
+                         alt="Physical game disc">
+
+                </div>
+
+                <h2>
+                    Nintendo Switch Sports
+                </h2>
+
+                <p>Game License</p>
+
+                <strong>$39.99</strong>
+
+                <button class="add-to-cart"
+                        data-product="4">
+
+                    ADD TO CART
+
+                </button>
+
+            </article>
+
+        </section>
+
+    </main>
+
+
+    <!-- CART OVERLAY -->
+
+    <div id="cart-overlay">
+
+        <div id="cart">
+
+            <button id="store-close-cart">
+                X
+            </button>
+
+            <h2>YOUR CART</h2>
+
+            <div id="cart-items">
+
+                <p class="empty-cart">
+                    Your cart is empty.
+                </p>
+
+            </div>
+
+            <div class="cart-total">
+
+                <span>TOTAL</span>
+
+                <strong id="cart-total">
+                    $0.00
+                </strong>
+
+            </div>
+
+            <button id="checkout-button">
+                ACCEPT YOUR LICENSE
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- CHECKOUT MESSAGE -->
+
+    <div id="store-message">
+
+        <div class="store-message-box">
+
+            <h2>
+                CONGRATULATIONS!
+            </h2>
+
+            <p>
+                You've successfully purchased something you don't actually own
+            </p>
+
+            <button id="store-message-close">
+                CLOSE
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- STORE SCRIPT -->
+
+    <script src="store.js"></script>
+
+</body>
+
+</html>

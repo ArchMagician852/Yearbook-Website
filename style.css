@@ -1480,3 +1480,69 @@ body:not(.xbox-page):not(.playstation-page):not(.nintendo-page) {
         line-height: 1.5;
     }
 }
+
+/* =========================================================
+   EXTRA HOME BUTTONS
+========================================================= */
+
+.extra-buttons {
+    width: min(95%, 1200px);
+
+    margin: -20px auto 60px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 30px;
+}
+
+.extra-buttons .console-button {
+    width: 150px;
+    height: 150px;
+}
+
+
+/* STORE */
+
+.store-button {
+    background-color: #222222;
+    color: #ffffff;
+}
+
+.store-button:hover {
+    filter: brightness(70%);
+}
+
+
+/* NINTENDO */
+
+.nintendo-button {
+    background-color: #E60012;
+    color: #ffffff;
+}
+
+.nintendo-button:hover {
+    filter: brightness(70%);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .extra-buttons {
+        margin: 10px auto 40px;
+
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+    .extra-buttons .console-button {
+        width: 120px;
+        height: 120px;
+    }
+
+}
