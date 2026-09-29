@@ -1844,3 +1844,687 @@ body:not(.xbox-page):not(.playstation-page):not(.nintendo-page) {
 .steam-button:hover {
     filter: brightness(70%);
 }
+
+/* =========================================================
+   SOURCES PAGE
+   ========================================================= */
+
+.sources-page {
+    background-color: #0d5872;
+    min-height: 100vh;
+    color: #ffffff;
+}
+
+.sources-page .home-button {
+    display: inline-block;
+    margin: 20px;
+    padding: 10px 20px;
+
+    background-color: #0f3864;
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-family: "Orbitron", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+
+    border: 2px solid #ffffff;
+
+    transition: filter 0.2s ease;
+}
+
+.sources-page .home-button:hover {
+    filter: brightness(70%);
+}
+
+.sources-banner {
+    width: min(90%, 900px);
+    margin: 30px auto;
+
+    padding: 35px 20px;
+
+    background-color: #0f3864;
+    color: #ffffff;
+
+    border: 3px solid #007bff;
+
+    text-align: center;
+
+    font-family: "Orbitron", sans-serif;
+    font-size: clamp(35px, 7vw, 70px);
+    font-weight: 700;
+}
+
+.sources-main {
+    width: min(90%, 1000px);
+
+    margin: 40px auto 80px;
+
+    padding: 40px;
+
+    background-color: #ffffff;
+    color: #222222;
+
+    border-radius: 10px;
+
+    font-family: Arial, sans-serif;
+}
+
+.sources-main > h1 {
+    margin-top: 0;
+
+    color: #0f3864;
+
+    font-family: "Orbitron", sans-serif;
+    font-size: clamp(25px, 5vw, 42px);
+
+    text-align: center;
+}
+
+.sources-main > p {
+    text-align: center;
+
+    font-size: 18px;
+    line-height: 1.6;
+
+    margin-bottom: 50px;
+}
+
+.source-section {
+    margin-bottom: 40px;
+    padding: 25px;
+
+    background-color: #f5f5f5;
+
+    border-left: 6px solid #007bff;
+}
+
+.source-section h2 {
+    margin-top: 0;
+
+    color: #0f3864;
+
+    font-family: "Orbitron", sans-serif;
+    font-size: 26px;
+}
+
+.source-entry {
+    padding: 20px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #cccccc;
+}
+
+.source-entry h3 {
+    margin-top: 0;
+
+    font-size: 21px;
+}
+
+.source-entry p {
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.source-entry a {
+    display: inline-block;
+
+    margin-top: 10px;
+    padding: 10px 16px;
+
+    background-color: #0f3864;
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-family: "Orbitron", sans-serif;
+    font-weight: 700;
+
+    transition: filter 0.2s ease;
+}
+
+.source-entry a:hover {
+    filter: brightness(70%);
+}
+
+@media (max-width: 600px) {
+
+    .sources-page .home-button {
+        font-size: 20px;
+        margin: 15px;
+    }
+
+    .sources-banner {
+        width: 92%;
+        padding: 25px 15px;
+        margin: 20px auto;
+    }
+
+    .sources-main {
+        width: 94%;
+        padding: 20px 15px;
+        margin-top: 25px;
+    }
+
+    .sources-main > p {
+        font-size: 16px;
+    }
+
+    .source-section {
+        padding: 18px;
+        margin-bottom: 25px;
+    }
+
+    .source-section h2 {
+        font-size: 22px;
+    }
+
+    .source-entry {
+        padding: 15px;
+    }
+
+    .source-entry p {
+        font-size: 16px;
+    }
+
+    .source-entry a {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* =========================================================
+   SECRET SOURCE ACCESS POPUP
+   ========================================================= */
+
+#source-prompt {
+    position: fixed;
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.85);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 10000;
+
+    font-family: "Orbitron", sans-serif;
+}
+
+/* Popup box */
+
+.source-prompt-box {
+    position: relative;
+
+    width: min(90vw, 500px);
+
+    padding: 40px 35px;
+
+    background-color: #0f3864;
+    color: #ffffff;
+
+    border: 3px solid #007bff;
+
+    box-shadow: 0 0 30px rgba(0, 123, 255, 0.5);
+
+    text-align: center;
+
+    animation: sourcePopupIn 0.25s ease-out;
+}
+
+/* Title */
+
+.source-prompt-box h2 {
+    margin: 0 35px 20px 0;
+
+    color: #ffffff;
+
+    font-size: clamp(24px, 5vw, 34px);
+}
+
+/* Description */
+
+.source-prompt-box p {
+    margin: 10px 0;
+
+    font-size: 16px;
+}
+
+/* Text input */
+
+#source-code-input {
+    width: 100%;
+
+    margin: 15px 0;
+
+    padding: 12px 15px;
+
+    background-color: #082542;
+    color: #ffffff;
+
+    border: 2px solid #007bff;
+
+    outline: none;
+
+    font-family: "Orbitron", sans-serif;
+    font-size: 18px;
+
+    text-align: center;
+}
+
+/* Input when selected */
+
+#source-code-input:focus {
+    border-color: #ffffff;
+
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.7);
+}
+
+/* Enter button */
+
+#source-submit {
+    padding: 12px 25px;
+
+    background-color: #007bff;
+    color: #ffffff;
+
+    border: 2px solid #ffffff;
+
+    font-family: "Orbitron", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: filter 0.2s ease;
+}
+
+#source-submit:hover {
+    filter: brightness(70%);
+}
+
+/* Close button */
+
+#source-prompt-close {
+    position: absolute;
+
+    top: 10px;
+    right: 10px;
+
+    width: 36px;
+    height: 36px;
+
+    padding: 0;
+    margin: 0;
+
+    background-color: #ff0000;
+    color: #ffffff;
+
+    border: none;
+    border-radius: 6px;
+
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+
+    line-height: 36px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: filter 0.2s ease;
+}
+
+#source-prompt-close:hover {
+    filter: brightness(70%);
+}
+
+/* Incorrect code */
+
+#source-error {
+    min-height: 20px;
+
+    margin-top: 15px;
+
+    color: #ff5555;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* Popup entrance animation */
+
+@keyframes sourcePopupIn {
+
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    #source-prompt {
+        padding: 15px;
+    }
+
+    .source-prompt-box {
+        width: 94vw;
+        padding: 30px 20px;
+    }
+
+    .source-prompt-box h2 {
+        font-size: 24px;
+        margin-right: 40px;
+    }
+
+    .source-prompt-box p {
+        font-size: 14px;
+    }
+
+    #source-code-input {
+        font-size: 16px;
+        padding: 11px;
+    }
+
+    #source-submit {
+        width: 100%;
+        padding: 12px;
+    }
+
+    #source-prompt-close {
+        width: 32px;
+        height: 32px;
+
+        font-size: 20px;
+        line-height: 32px;
+
+        top: 8px;
+        right: 8px;
+    }
+
+}
+
+/* =========================================================
+   HOMEPAGE CRUMBLE EFFECT
+   ========================================================= */
+
+body.crumbling {
+    overflow: hidden;
+}
+
+/* The main homepage elements begin breaking apart */
+
+body.crumbling .solid-banner {
+    animation: crumbleTop 1.8s ease-in forwards;
+    transform-origin: center top;
+}
+
+body.crumbling .main-banner {
+    animation: crumbleCenter 2s ease-in forwards;
+    transform-origin: center center;
+}
+
+body.crumbling .xbox-button {
+    animation: crumbleLeft 1.7s ease-in forwards;
+    transform-origin: center center;
+}
+
+body.crumbling .playstation-button {
+    animation: crumbleRight 1.9s ease-in forwards;
+    transform-origin: center center;
+}
+
+/* Extra buttons, if present */
+
+body.crumbling .extra-buttons {
+    animation: crumbleBottom 1.6s ease-in forwards;
+}
+
+/* Mobile game button */
+
+body.crumbling #mobile-game-button {
+    animation: crumbleBottom 1.4s ease-in forwards;
+}
+
+
+/* =========================================================
+   CRUMBLE ANIMATIONS
+   ========================================================= */
+
+/* Top banner */
+
+@keyframes crumbleTop {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    35% {
+        transform: translateY(20px) rotate(-2deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(-15deg);
+        opacity: 0;
+    }
+
+}
+
+
+/* Main center banner */
+
+@keyframes crumbleCenter {
+
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+
+    25% {
+        transform: scale(1.02) rotate(1deg);
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(8deg) scale(0.85);
+        opacity: 0;
+    }
+
+}
+
+
+/* Xbox falls toward the left */
+
+@keyframes crumbleLeft {
+
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 1;
+    }
+
+    30% {
+        transform: translate(-10px, 20px) rotate(-4deg);
+    }
+
+    100% {
+        transform: translate(-80vw, 110vh) rotate(-35deg);
+        opacity: 0;
+    }
+
+}
+
+
+/* PlayStation falls toward the right */
+
+@keyframes crumbleRight {
+
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 1;
+    }
+
+    30% {
+        transform: translate(10px, 20px) rotate(4deg);
+    }
+
+    100% {
+        transform: translate(80vw, 110vh) rotate(35deg);
+        opacity: 0;
+    }
+
+}
+
+
+/* Bottom elements */
+
+@keyframes crumbleBottom {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(12deg);
+        opacity: 0;
+    }
+
+}
+
+body.crumbling .main-layout {
+    animation: crumbleLayout 2.2s ease-in forwards;
+}
+
+@keyframes crumbleLayout {
+
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}
+
+body.crumbling {
+    animation: revealSources 2.8s linear forwards;
+}
+
+@keyframes revealSources {
+
+    0% {
+        background-color: rgb(13, 88, 114);
+    }
+
+    70% {
+        background-color: rgb(13, 88, 114);
+    }
+
+    100% {
+        background-color: #050505;
+    }
+
+}
+
+/* =========================================================
+   EXTRA HOMEPAGE BUTTONS - CRUMBLE EFFECT
+   ========================================================= */
+
+body.crumbling .nintendo-button {
+    animation: crumbleNintendo 1.7s ease-in forwards;
+    transform-origin: center center;
+}
+
+body.crumbling .steam-button {
+    animation: crumbleSteam 1.9s ease-in forwards;
+    transform-origin: center center;
+}
+
+body.crumbling .store-button {
+    animation: crumbleStore 1.6s ease-in forwards;
+    transform-origin: center center;
+}
+
+
+/* Nintendo */
+
+@keyframes crumbleNintendo {
+
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 1;
+    }
+
+    30% {
+        transform: translate(-10px, 20px) rotate(-5deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-60vw, 110vh) rotate(-30deg);
+        opacity: 0;
+    }
+
+}
+
+
+/* Steam */
+
+@keyframes crumbleSteam {
+
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 1;
+    }
+
+    30% {
+        transform: translate(10px, 20px) rotate(5deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(65vw, 110vh) rotate(35deg);
+        opacity: 0;
+    }
+
+}
+
+
+/* Store */
+
+@keyframes crumbleStore {
+
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 1;
+    }
+
+    30% {
+        transform: translate(0, 20px) rotate(-3deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(15vw, 110vh) rotate(20deg);
+        opacity: 0;
+    }
+
+}
