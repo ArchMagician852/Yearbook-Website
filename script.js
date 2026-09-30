@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     /* =========================================================
-       EXISTING OPTICAL MEDIA MINIGAME
+       OPTICAL MEDIA MINIGAME
        ========================================================= */
 
     const minigame = document.getElementById("minigame");
@@ -11,33 +11,77 @@ document.addEventListener("DOMContentLoaded", () => {
     const mobileButton = document.getElementById("mobile-game-button");
 
     let score = 0;
+    let discTimer = null;
+
+    // -------------------------
+    // OPEN GAME
+    // -------------------------
 
     function openGame() {
+        if (!minigame || !gameArea) return;
+
         minigame.style.display = "flex";
         score = 0;
         updateScore();
         spawnDisc();
     }
 
+    // -------------------------
+    // CLOSE GAME
+    // -------------------------
+
     function closeGame() {
+        if (!minigame || !gameArea) return;
+
         minigame.style.display = "none";
         gameArea.innerHTML = "";
+
+        if (discTimer) {
+            clearTimeout(discTimer);
+            discTimer = null;
+        }
     }
+
+    // -------------------------
+    // UPDATE SCORE
+    // -------------------------
 
     function updateScore() {
-        scoreDisplay.textContent = score;
+        if (scoreDisplay) {
+            scoreDisplay.textContent = score;
+        }
     }
 
+    // -------------------------
+    // SPAWN DISC
+    // -------------------------
+
     function spawnDisc() {
+        if (!gameArea) return;
+
         gameArea.innerHTML = "";
+
+        if (discTimer) {
+            clearTimeout(discTimer);
+            discTimer = null;
+        }
 
         const disc = document.createElement("img");
 
         disc.src = "Images/Disc1.png";
         disc.classList.add("disc");
 
-        const maxX = Math.max(0, gameArea.clientWidth - 50);
-        const maxY = Math.max(0, gameArea.clientHeight - 50);
+        const discSize = 50;
+
+        const maxX = Math.max(
+            0,
+            gameArea.clientWidth - discSize
+        );
+
+        const maxY = Math.max(
+            0,
+            gameArea.clientHeight - discSize
+        );
 
         const x = Math.random() * maxX;
         const y = Math.random() * maxY;
@@ -45,14 +89,37 @@ document.addEventListener("DOMContentLoaded", () => {
         disc.style.left = `${x}px`;
         disc.style.top = `${y}px`;
 
+        // CLICK DISC
+
         disc.addEventListener("click", () => {
             score++;
             updateScore();
+
+            disc.remove();
+
+            if (discTimer) {
+                clearTimeout(discTimer);
+                discTimer = null;
+            }
+
             spawnDisc();
         });
 
         gameArea.appendChild(disc);
+
+        // DESPAWN AFTER 3 SECONDS
+
+        discTimer = setTimeout(() => {
+            if (disc.parentElement === gameArea) {
+                disc.remove();
+                spawnDisc();
+            }
+        }, 3000);
     }
+
+    // -------------------------
+    // GAME BUTTONS
+    // -------------------------
 
     if (closeButton) {
         closeButton.addEventListener("click", closeGame);
@@ -67,10 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
        SOURCES EASTER EGG
        ========================================================= */
 
-    // -------------------------
-    // SETTINGS
-    // -------------------------
-
+    // Keep the password from the current/local version.
     const SOURCE_CODE = "Password";
     const REQUIRED_TAPS = 8;
 
@@ -78,20 +142,18 @@ document.addEventListener("DOMContentLoaded", () => {
     let tapResetTimer = null;
     let crumbleStarted = false;
 
-
     // -------------------------
     // FIND OPTICAL MEDIA BANNER
     // -------------------------
 
-    const opticalBanner = document.getElementById("optical-media-banner");
-
+    const opticalBanner =
+        document.getElementById("optical-media-banner");
 
     // -------------------------
     // MOBILE: 8 TAPS
     // -------------------------
 
     if (opticalBanner) {
-
         opticalBanner.addEventListener("click", () => {
 
             // Don't allow the Easter egg to trigger twice
@@ -106,10 +168,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 opticalMediaTaps = 0;
             }, 2000);
 
-
             // Eight taps!
             if (opticalMediaTaps >= REQUIRED_TAPS) {
-
                 clearTimeout(tapResetTimer);
 
                 showToast("Okay, you found it.");
@@ -128,34 +188,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.addEventListener("keydown", (event) => {
 
-        // Existing minigame shortcut
+        // -------------------------
+        // CTRL + ALT + P
+        // OPEN MINIGAME
+        // -------------------------
+
         if (
             event.ctrlKey &&
             event.altKey &&
             event.key.toLowerCase() === "p"
         ) {
+            event.preventDefault();
             openGame();
         }
 
+        // -------------------------
+        // ESC
+        // CLOSE MINIGAME
+        // -------------------------
 
-        // Escape closes the minigame
         if (event.key === "Escape") {
             closeGame();
         }
 
+        // -------------------------
+        // CTRL + ALT + S
+        // SOURCES
+        // -------------------------
 
-        // Sources Easter egg shortcut
         if (
             event.ctrlKey &&
             event.altKey &&
             event.key.toLowerCase() === "s"
         ) {
-
             // Don't open it twice
             if (crumbleStarted) return;
 
             event.preventDefault();
-
             openSourcePrompt();
         }
     });
@@ -203,43 +272,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
         document.body.appendChild(prompt);
 
-
         const input = document.getElementById("source-code-input");
         const submit = document.getElementById("source-submit");
         const close = document.getElementById("source-prompt-close");
         const error = document.getElementById("source-error");
 
-
         // Automatically put cursor in box
-        input.focus();
-
+        if (input) {
+            input.focus();
+        }
 
         // Submit button
-        submit.addEventListener("click", checkSourceCode);
-
+        if (submit) {
+            submit.addEventListener("click", checkSourceCode);
+        }
 
         // Press Enter instead
-        input.addEventListener("keydown", (event) => {
+        if (input) {
+            input.addEventListener("keydown", (event) => {
 
-            if (event.key === "Enter") {
-                checkSourceCode();
-            }
+                if (event.key === "Enter") {
+                    checkSourceCode();
+                }
 
-            if (event.key === "Escape") {
-                prompt.remove();
-            }
-        });
-
+                if (event.key === "Escape") {
+                    prompt.remove();
+                }
+            });
+        }
 
         // Close button
-        close.addEventListener("click", () => {
-            prompt.remove();
-        });
-
+        if (close) {
+            close.addEventListener("click", () => {
+                prompt.remove();
+            });
+        }
 
         function checkSourceCode() {
 
-            if (input.value === SOURCE_CODE) {
+            if (!input) return;
+
+            if (input.value.toLowerCase() === SOURCE_CODE.toLowerCase()) {
 
                 // Correct!
                 prompt.remove();
@@ -252,14 +325,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
             } else {
 
-                error.textContent = "ACCESS DENIED.";
+                if (error) {
+                    error.textContent = "ACCESS DENIED.";
+                }
 
                 input.value = "";
                 input.focus();
 
                 // Remove the error after a moment
                 setTimeout(() => {
-                    error.textContent = "";
+                    if (error) {
+                        error.textContent = "";
+                    }
                 }, 1500);
             }
         }
@@ -273,12 +350,12 @@ document.addEventListener("DOMContentLoaded", () => {
     function showToast(message) {
 
         // Remove an existing toast
-        const existingToast = document.getElementById("source-toast");
+        const existingToast =
+            document.getElementById("source-toast");
 
         if (existingToast) {
             existingToast.remove();
         }
-
 
         const toast = document.createElement("div");
 
@@ -287,12 +364,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         document.body.appendChild(toast);
 
-
         // Force the browser to recognize the element
         requestAnimationFrame(() => {
             toast.classList.add("show");
         });
-
 
         // Hide toast
         setTimeout(() => {
@@ -317,16 +392,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         crumbleStarted = true;
 
-
         // Add the animation class
         document.body.classList.add("crumbling");
 
-
         // Give the animation time to play
         setTimeout(() => {
-
             window.location.href = "sources.html";
-
         }, 2800);
     }
 
