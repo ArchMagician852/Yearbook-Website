@@ -78,6 +78,75 @@ body:not(.xbox-page):not(.playstation-page):not(.nintendo-page):not(.steam-page)
     flex-shrink: 0;
 }
 
+/* HOME PAGE SEARCH */
+.home-search {
+    position: relative;
+    z-index: 1;
+    width: min(90%, 760px);
+    margin: 30px auto -25px;
+    color: #ffffff;
+    font-family: "Orbitron", sans-serif;
+}
+
+.home-search label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.home-search-controls { display: flex; gap: 10px; }
+
+.home-search input {
+    flex: 1;
+    min-width: 0;
+    padding: 13px 15px;
+    border: 3px solid #02478A;
+    border-radius: 5px;
+    background: #ffffff;
+    color: #17324c;
+    font: 16px "Orbitron", sans-serif;
+}
+
+.home-search button {
+    padding: 12px 18px;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    background: #BE0000;
+    color: #ffffff;
+    font: 700 14px "Orbitron", sans-serif;
+    cursor: pointer;
+}
+
+.home-search button:hover { background: #02478A; }
+
+.home-search-results {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    max-height: 280px;
+    overflow-y: auto;
+    border: 2px solid #02478A;
+    border-radius: 0 0 5px 5px;
+    background: #ffffff;
+    color: #17324c;
+    box-shadow: 0 8px 18px #0004;
+}
+
+.home-search-results ul { margin: 0; padding: 0; list-style: none; }
+.home-search-results > p { margin: 0; padding: 12px 15px; }
+.home-search-results li + li { border-top: 1px solid #d7e0e8; }
+.home-search-results a { display: block; padding: 12px 15px; color: #02478A; font-weight: 700; text-decoration: none; }
+.home-search-results a:hover, .home-search-results a:focus-visible { background: #edf3f8; color: #BE0000; }
+.home-search-excerpt { display: block; padding: 0 15px 12px; color: #40576b; font: 13px/1.5 Arial, sans-serif; }
+
+@media (max-width: 500px) {
+    .home-search { margin-top: 24px; }
+    .home-search-controls { gap: 6px; }
+    .home-search button { padding: 10px 12px; font-size: 12px; }
+}
+
 /* =========================================================
    HOME PAGE LAYOUT
    ========================================================= */
