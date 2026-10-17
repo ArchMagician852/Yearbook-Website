@@ -1,21 +1,14 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="sidebar.css">
-
-    <link
-        rel="icon"
-        type="image/png"
-        href="Images/site-icon.png"
-    >
+    <link rel="icon" type="image/png" href="Images/site-icon.png">
 
     <title>Steam</title>
-
 </head>
-
 <body class="steam-page">
     <button class="site-nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false">MENU</button>
     <div class="site-nav-backdrop" aria-hidden="true"></div>
@@ -26,73 +19,16 @@
         <a href="nintendo.html">Nintendo</a><a href="steam.html">Steam</a><a href="store.html">Store</a>
         <a href="sources.html">Sources</a><a href="about.html">About Me</a><a href="contact.html">Contact</a>
     </nav>
-
     <a href="index.html" class="home-button">HOME</a>
-
-    <div class="steam-banner">
-        <span>STEAM</span>
-    </div>
-
-
-    <div class="steam-main">
-
-        <h1>Steam's Digital-First Approach</h1>
-
-        <h2>
-            Steam has helped make digital game distribution the standard
-            for PC gaming. Games can be purchased, downloaded, and accessed
-            without ever needing a physical disc.
-        </h2>
-
-        <p>
-            But when you purchase a game digitally, what exactly are you
-            buying? The convenience of digital distribution can come with
-            an important distinction between owning a physical copy and
-            receiving a license to use digital software.
-        </p>
-
-
-        <div class="steam-section">
-
-            <h2>YOU DON'T OWN THE GAME</h2>
-
-            <p>
-                A physical game can exist independently of a company's
-                servers. Digital games depend much more heavily on the
-                platform and the licenses that allow them to be accessed.
-            </p>
-
+    <div class="steam-banner"><span>STEAM</span></div>
+    <main class="steam-main article-selection-page">
+        <h1>Choose an article</h1>
+        <div class="article-selection-grid">
+        <a class="article-card" href="steam-article-1.html"><span>Article 1</span><span class="article-card-arrow" aria-hidden="true">›</span></a>
+        <a class="article-card" href="steam-article-2.html"><span>Article 2</span><span class="article-card-arrow" aria-hidden="true">›</span></a>
+        <a class="article-card" href="steam-article-3.html"><span>Article 3</span><span class="article-card-arrow" aria-hidden="true">›</span></a>
         </div>
-
-
-        <div class="steam-section">
-
-            <h2>THE CONVENIENCE</h2>
-
-            <p>
-                Steam makes purchasing and managing a game library
-                incredibly convenient. No discs, no trips to a store,
-                and no physical storage required.
-            </p>
-
-        </div>
-
-
-        <div class="steam-section">
-
-            <h2>THE TRADE-OFF</h2>
-
-            <p>
-                Digital distribution provides convenience, but it also
-                means your access can depend on the platform, your account,
-                and the availability of the software.
-            </p>
-
-        </div>
-
-    </div>
-
+    </main>
     <script src="sidebar.js"></script>
 </body>
-
 </html>

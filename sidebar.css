@@ -136,6 +136,56 @@ body.site-nav-open { overflow: hidden; }
 .site-page button[type="submit"]:hover { background: #02478A; }
 .contact-note { padding: 14px; border-left: 5px solid #BE0000; background: #edf3f8; }
 
+/* Blank article slots for the platform pages */
+.article-selection-page {
+    min-height: auto;
+    text-align: left;
+}
+
+.article-selection-page > h1,
+.article-content-page > h1 { text-align: center; }
+
+.article-selection-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 36px;
+}
+
+.article-card {
+    display: flex;
+    min-height: 120px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 22px;
+    border: 3px solid currentColor;
+    border-radius: 8px;
+    color: inherit;
+    font-size: clamp(17px, 2vw, 22px);
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform .18s ease, filter .18s ease;
+}
+
+.article-card:hover,
+.article-card:focus-visible { filter: brightness(1.12); transform: translateY(-3px); }
+.article-card-arrow { font-size: 32px; line-height: 1; }
+.xbox-page .article-card { background: #107c10; color: #fff; }
+.playstation-page .article-card { background: #fff; color: #0070d1; }
+.nintendo-page .article-card { background: #fff; color: #e60012; }
+.steam-page .article-card { background: #101822; color: #66c0f4; }
+
+.article-content-page { min-height: auto; }
+.article-writing-space { min-height: 60vh; }
+.article-page .home-button { font-size: clamp(16px, 2vw, 22px); }
+
+@media (max-width: 500px) {
+    .article-selection-grid { gap: 12px; margin-top: 24px; }
+    .article-card { min-height: 88px; }
+    .article-writing-space { min-height: 55vh; }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .site-nav-backdrop, .site-nav-panel { transition: none; }
 }

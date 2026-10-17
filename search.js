@@ -13,7 +13,19 @@ document.addEventListener("DOMContentLoaded", () => {
         { title: "Store", href: "store.html" },
         { title: "Sources", href: "sources.html" },
         { title: "About Me", href: "about.html" },
-        { title: "Contact", href: "contact.html" }
+        { title: "Contact", href: "contact.html" },
+        { title: "Xbox — Article 1", href: "xbox-article-1.html" },
+        { title: "Xbox — Article 2", href: "xbox-article-2.html" },
+        { title: "Xbox — Article 3", href: "xbox-article-3.html" },
+        { title: "PlayStation — Article 1", href: "playstation-article-1.html" },
+        { title: "PlayStation — Article 2", href: "playstation-article-2.html" },
+        { title: "PlayStation — Article 3", href: "playstation-article-3.html" },
+        { title: "Nintendo — Article 1", href: "nintendo-article-1.html" },
+        { title: "Nintendo — Article 2", href: "nintendo-article-2.html" },
+        { title: "Nintendo — Article 3", href: "nintendo-article-3.html" },
+        { title: "Steam — Article 1", href: "steam-article-1.html" },
+        { title: "Steam — Article 2", href: "steam-article-2.html" },
+        { title: "Steam — Article 3", href: "steam-article-3.html" }
     ];
 
     let pageIndexPromise;

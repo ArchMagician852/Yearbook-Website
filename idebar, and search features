@@ -1,0 +1,16 @@
+warning: in the working copy of 'index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'nintendo.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'playstation.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'sources.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'steam.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'store.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'xbox.html', LF will be replaced by CRLF the next time Git touches it
+ index.html       | 23 [32m+++++++++++++++++[m[31m-[m
+ nintendo.html    | 11 [32m+++++++++[m
+ playstation.html | 11 [32m+++++++++[m
+ sources.html     | 11 [32m+++++++++[m
+ steam.html       | 11 [32m+++++++++[m
+ store.html       | 11 [32m+++++++++[m
+ style.css        | 71 [32m+++++++++++++++++++++++++++++++++++++++++++++++++++++++[m[31m-[m
+ xbox.html        | 11 [32m+++++++++[m
+ 8 files changed, 158 insertions(+), 2 deletions(-)

@@ -1,32 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="sidebar.css">
-
-    <!-- Website Icon -->
     <link rel="icon" type="image/png" href="Images/site-icon.png">
-
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Stardos+Stencil:wght@400;700&display=swap"
-        rel="stylesheet">
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Stardos+Stencil:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>PlayStation</title>
 </head>
-
 <body class="playstation-page">
     <button class="site-nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false">MENU</button>
     <div class="site-nav-backdrop" aria-hidden="true"></div>
@@ -37,33 +22,16 @@
         <a href="nintendo.html">Nintendo</a><a href="steam.html">Steam</a><a href="store.html">Store</a>
         <a href="sources.html">Sources</a><a href="about.html">About Me</a><a href="contact.html">Contact</a>
     </nav>
-
-    <!-- Home Button -->
     <a href="index.html" class="home-button">HOME</a>
-
-
-    <!-- PlayStation Banner -->
-    <div class="playstation-banner">
-        <span>PLAYSTATION</span>
-    </div>
-
-
-    <!-- Main PlayStation Content -->
-    <div class="playstation-main">
-
-        <h1>PlayStation's Switch to Digital Media</h1>
-
-        <h2>
-            PlayStation's switch to digital is a harsh push into their approach.
-            PlayStation is going to stop producing physical discs in 2028.
-            They also got rid of over 4000 movies off the PlayStation Store.
-        </h2>
-
-        <!-- More content goes here -->
-
-    </div>
-
+    <div class="playstation-banner"><span>PLAYSTATION</span></div>
+    <main class="playstation-main article-selection-page">
+        <h1>Choose an article</h1>
+        <div class="article-selection-grid">
+        <a class="article-card" href="playstation-article-1.html"><span>Article 1</span><span class="article-card-arrow" aria-hidden="true">›</span></a>
+        <a class="article-card" href="playstation-article-2.html"><span>Article 2</span><span class="article-card-arrow" aria-hidden="true">›</span></a>
+        <a class="article-card" href="playstation-article-3.html"><span>Article 3</span><span class="article-card-arrow" aria-hidden="true">›</span></a>
+        </div>
+    </main>
     <script src="sidebar.js"></script>
 </body>
-
 </html>
