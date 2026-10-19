@@ -61,6 +61,31 @@ document.addEventListener("DOMContentLoaded", () => {
         return `${start > 0 ? "…" : ""}${content.slice(start, end)}${end < content.length ? "…" : ""}`;
     };
 
+    const appendHighlightedText = (element, text, words) => {
+        const escapedWords = [...new Set(words)]
+            .sort((a, b) => b.length - a.length)
+            .map((word) => word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+        if (!escapedWords.length) {
+            element.textContent = text;
+            return;
+        }
+
+        const pattern = new RegExp(`(${escapedWords.join("|")})`, "gi");
+        let lastIndex = 0;
+        for (const match of text.matchAll(pattern)) {
+            if (match.index > lastIndex) {
+                element.append(document.createTextNode(text.slice(lastIndex, match.index)));
+            }
+            const highlight = document.createElement("strong");
+            highlight.textContent = match[0];
+            element.append(highlight);
+            lastIndex = match.index + match[0].length;
+        }
+        if (lastIndex < text.length) {
+            element.append(document.createTextNode(text.slice(lastIndex)));
+        }
+    };
+
     const renderResults = async () => {
         const query = input.value.trim().toLocaleLowerCase();
         const thisSearch = ++searchNumber;
@@ -91,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 link.href = page.href;
                 link.textContent = page.title;
                 excerpt.className = "home-search-excerpt";
-                excerpt.textContent = makeExcerpt(page.content, query);
+                appendHighlightedText(excerpt, makeExcerpt(page.content, query), words);
                 item.append(link, excerpt);
                 list.append(item);
             });

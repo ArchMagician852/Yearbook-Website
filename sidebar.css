@@ -189,3 +189,18 @@ body.site-nav-open { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
     .site-nav-backdrop, .site-nav-panel { transition: none; }
 }
+
+
+
+
+
+.article-card {
+    justify-content: flex-start;
+}
+.article-card-image {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    flex: 0 0 auto;
+}
+.article-card-arrow { margin-left: auto; }
