@@ -204,3 +204,17 @@ body.site-nav-open { overflow: hidden; }
     flex: 0 0 auto;
 }
 .article-card-arrow { margin-left: auto; }
+
+.article-placeholder-image {
+    display: block;
+    width: min(100%, 720px);
+    height: auto;
+    margin: 24px auto;
+    border-radius: 8px;
+}
+
+
+.article-writing-space {
+    text-align: left;
+}
+
